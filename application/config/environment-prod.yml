@@ -1,0 +1,9 @@
+PORT: 1434
+HOSTNAME: 127.0.0.1
+
+DATABASE:
+  user: karen
+  host: localhost
+  database: the_wall_final
+  password: password
+  port: 3306

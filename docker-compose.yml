@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+    db:
+      image: mysql:5.7
+      volumes:
+        - db_data:/var/lib/mysql
+        - ./mysql-dump:/docker-entrypoint-initdb.d
+      restart: always
+      environment: 
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: the_wall_final
+
+      ports:
+        - 3307:3306
+
+    test:
+      depends_on: 
+        - db
+      build: ./
+      command: npm test #or can be npm run test ?
+      volumes:
+        - ./:/var/www/app 
+      ports:
+        - 1433:1433
+        - 9229:9229
+
+volumes:
+    db_data: {}

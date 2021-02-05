@@ -1,0 +1,26 @@
+name: Github Actions Example
+
+on:
+  pull_request:
+    types: [opened]
+  push:                                   #intentionally bug: missing - develop
+    branches: 
+      - master
+      - develop
+jobs:
+  test:
+    name: Running Unit Tests
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: ./docker-compose.yml  #intentionally bug: ../../docker-compose.yml
+    steps:
+    - name: Checkout code                 
+      uses: actions/checkout@v2           #intentionally bug: -uses
+    - name: Install Google Chrome 
+      run: |
+       chmod +x ./test/lib/install-chrome.sh
+        ./test/lib/install-chrome.sh
+    - name: Build docker images
+      run: docker-compose build           #intentionally bug: indentation of run
+    - name: Run docker tests
+      run: docker-compose run test
