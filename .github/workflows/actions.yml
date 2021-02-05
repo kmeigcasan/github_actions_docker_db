@@ -22,7 +22,5 @@ jobs:
         ./test/lib/install-chrome.sh
     - name: Build docker images
       run: docker-compose build           #intentionally bug: indentation of run
-    - name: Grant execute permission for mocha # give permission to Mocha to run the commands
-      run: chmod +x mocha 
     - name: Run docker tests
       run: docker-compose run test
