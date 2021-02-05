@@ -7,8 +7,8 @@ const expect = chai.expect;
 (async function test() {
     try {
         describe ('The Wall - Integration Testing', async function() {
-            this.timeout(50000);
             let page;
+            this.timeout(50000);
 
             beforeEach(async() => {
                 page = new Page();
