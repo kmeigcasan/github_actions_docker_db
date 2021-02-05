@@ -7,10 +7,10 @@ WORKDIR /var/www/app
 
 COPY package.json .
 
-# happens in container
-RUN npm install -g nodemon
+# # happens in container
+# RUN npm install -g nodemon
 
-RUN npm install -g mocha
+# RUN npm install -g mocha
 
 #happens in container
 RUN npm install

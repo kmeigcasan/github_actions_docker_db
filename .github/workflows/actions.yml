@@ -20,6 +20,8 @@ jobs:
       run: |
        chmod +x ./test/lib/install-chrome.sh
         ./test/lib/install-chrome.sh
+    - name: Grant execute permission for mocha # give permission to Mocha to run the commands
+      run: chmod +x mocha 
     - name: Build docker images
       run: docker-compose build           #intentionally bug: indentation of run
     - name: Run docker tests
