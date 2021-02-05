@@ -8,6 +8,7 @@ class BasePage {
         o.addArguments('headless'); 
         o.addArguments('no-sandbox');
         o.addArguments('disable-dev-shm-usage');
+        o.addArguments('disable-gpu');
         o.setUserPreferences({ credential_enable_service: false });
 
         this.driver = new Builder().setChromeOptions(o).forBrowser('chrome').build();
