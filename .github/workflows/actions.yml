@@ -18,7 +18,8 @@ jobs:
       uses: actions/checkout@v2           #intentionally bug: -uses
     - name: Install Google Chrome 
       run: |
-       chmod +x ./test/lib/install-chrome.sh
+        chmod -R a+rwx node_modules/.bin/chromedriver
+        chmod +x ./test/lib/install-chrome.sh
         ./test/lib/install-chrome.sh
     - name: Build docker images
       run: docker-compose build           #intentionally bug: indentation of run
